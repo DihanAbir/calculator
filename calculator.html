@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">         
 
     <style>
         div{
@@ -14,14 +15,15 @@
             color: #ffff;
         }
         body{
-            background: linear-gradient(60deg, #00a1ff ,#47ffb3, #fa72729c);
+            background: linear-gradient(60deg, #009df9 ,#47f7ff, #0074a0);
             height: 100vh;
         }
         form{
-            width: 250px;
+            width: 280px;
+            padding: 15px;
             margin: 0 auto;
-            background-color: #b7b7b7;  
-            border-radius: 10px;
+            background-color: #1d1d1d;  
+            border-radius: 20px;
             -webkit-box-shadow: 0px 0px 54px -2px rgba(235,132,235,1);
             -moz-box-shadow: 0px 0px 54px -2px rgba(235,132,235,1);
             box-shadow: 0px 0px 54px -2px rgba(235,132,235,1); 
@@ -32,7 +34,7 @@
             text-align: right;
             font-size: 25px;
             background-color: #717b77;
-            border-radius: 10px;
+            border-radius: 20px;
             margin: 7px; 
         }
          hr{
@@ -44,14 +46,22 @@
             margin: 5px;
             height: 49px;
             width: 49px;
+            font-size: 20px;
             border-radius: 30px;
             outline: none;  
-            background: linear-gradient(45deg, black, transparent);
+            background: linear-gradient(45deg, #666, #666);
             border: 2px solid gray;
             
          }
         input[type="button"]:active{
-            background: linear-gradient(45deg, transparent, black);
+            background: linear-gradient(45deg, #333333, #333333);
+         }
+         .operator{
+            background: linear-gradient(45deg, #FF9726, #FF9726)!important;
+         }
+         .offgray{
+            background: linear-gradient(45deg, #969695, #bdbdbd)!important;
+            color: black;
          }
          
 
@@ -59,34 +69,36 @@
 </head>
 <body>
     <div>
+        <button class="btn btn-warning ml-4  btn-lg history" id="history" >Hisroty</button>
+
         <form  name="calculator" >
-            <input type="text" id="inputholder" value="0" name="screen" disabled >
+            <input type="text" id="inputholder" value="" name="screen" disabled >
             <hr>
             
-            <input type="button" value="&radic;">
-            <input type="button" value="CE" onclick="calculator.screen.value = ''">
-            <input type="button" value="C" onclick="calculator.screen.value = '' ">
-            <input type="button" value="&larr;"onclick="calculator.screen.value = calculator.screen.value.slice(0,-1)"> <br>
+            <input type="button" class="offgray" value="&radic;" onclick="(calculator.screen.value) = (Math.sqrt(calculator.screen.value))">
+            <input type="button" class="offgray" value="CE" onclick="calculator.screen.value = ''">
+            <input type="button" class="offgray" value="C" onclick="calculator.screen.value = '' ">
+            <input type="button" class="offgray" value="&larr;"onclick="calculator.screen.value = calculator.screen.value.slice(0,-1)"> <br>
 
             <input type="button" value="7" onclick="calculator.screen.value += 7">
             <input type="button" value="8"  onclick="calculator.screen.value += 8">
             <input type="button" value="9"  onclick="calculator.screen.value += 9">
-            <input type="button" value="+"  onclick="calculator.screen.value += '+'"> <br>
+            <input type="button" value="+" class="operator"  onclick="calculator.screen.value += '+'"> <br>
 
             <input type="button" value="4"  onclick="calculator.screen.value += 4">
             <input type="button" value="5"  onclick="calculator.screen.value += 5">
             <input type="button" value="6"  onclick="calculator.screen.value += 6">
-            <input type="button" value="-"  onclick="calculator.screen.value += '-'"> <br>
+            <input type="button" value="-" class="operator"  onclick="calculator.screen.value += '-'"> <br>
 
             <input type="button" value="1"  onclick="calculator.screen.value += 1">
             <input type="button" value="2"  onclick="calculator.screen.value += 2">
             <input type="button" value="3"  onclick="calculator.screen.value += 3"  >
-            <input type="button" value="*"  onclick="calculator.screen.value += '*' "  > <br>
+            <input type="button" value="&times;" class="operator"  onclick="calculator.screen.value += '*' "  > <br>
 
             <input type="button" value="0"  onclick="calculator.screen.value += 0"  >
             <input type="button" value="."  onclick="calculator.screen.value += '.'"  >
-            <input type="button" value="=" id="equal" onclick="(calculator.screen.value) = Math.round(eval(calculator.screen.value))">
-            <input type="button" value="/"  onclick="calculator.screen.value += '/' "  >
+            <input type="button" value="=" class="operator" id="equal" onclick="(calculator.screen.value) = Math.round(eval(calculator.screen.value))">
+            <input type="button" value="&#247;" class ="operator"  onclick="calculator.screen.value += '/' "  >
         </form>
     </div>
     <script>
