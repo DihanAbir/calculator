@@ -1,0 +1,72 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    font-family: sans-serif  ;
+}
+.result{
+    border-radius: 10px ;
+    height: 120px;
+    background-color: #e4e4e4;
+    margin: 10px 0px;
+}
+.calculator{
+    
+    overflow: hidden;
+}
+.history, .output{
+    display: block;
+    height: 50px;
+    padding: 10px 20px 0px 0px;
+    text-align: right;
+
+}
+.output{
+    font-size: 30px;
+    color: black;
+}
+.history{
+    font-size: 16px;
+    color: rgb(121, 115, 115);
+}
+
+.keyboard button{
+    margin: 20px;
+    width: 50px;
+    float: left;
+    height: 50px;
+    border-radius: 30px;
+    padding: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    border: none ;
+    outline: 0;
+    cursor: pointer;
+    transition: 0.1S ease;
+}
+.keyboard .empty{
+    background-color: transparent;
+}
+.keyboard button:active {
+    background-color: #c16a42;
+}
+.keyboard button:nth-child(4){
+    background-color: #6f42c1;
+}
+.keyboard button:nth-child(8){
+    background-color: #14d1d6;
+}
+.keyboard button:nth-child(12){
+    background-color: #c8e410;
+}
+.keyboard button:nth-child(16){
+    background-color: #ee5ce7;
+}
+.keyboard button:nth-child(20){
+    background-color: #3f7ec1;
+}
+.keyboard .operation{
+    background-color: #fff;
+}

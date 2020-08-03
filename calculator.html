@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        div{
+            margin-top: 20vh;   
+        }
+        *{
+            box-sizing: border-box;
+            color: #ffff;
+        }
+        body{
+            background: linear-gradient(60deg, #00a1ff ,#47ffb3, #fa72729c);
+            height: 100vh;
+        }
+        form{
+            width: 250px;
+            margin: 0 auto;
+            background-color: #b7b7b7;  
+            border-radius: 10px;
+            -webkit-box-shadow: 0px 0px 54px -2px rgba(235,132,235,1);
+            -moz-box-shadow: 0px 0px 54px -2px rgba(235,132,235,1);
+            box-shadow: 0px 0px 54px -2px rgba(235,132,235,1); 
+        }
+        input[type="text"] {
+            width: 95%;
+            padding: 10px;
+            text-align: right;
+            font-size: 25px;
+            background-color: #717b77;
+            border-radius: 10px;
+            margin: 7px; 
+        }
+         hr{
+            width: 100%;
+            height: 3px;
+            background-color: #666666;
+         }
+         input[type="button"]{
+            margin: 5px;
+            height: 49px;
+            width: 49px;
+            border-radius: 30px;
+            outline: none;  
+            background: linear-gradient(45deg, black, transparent);
+            border: 2px solid gray;
+            
+         }
+        input[type="button"]:active{
+            background: linear-gradient(45deg, transparent, black);
+         }
+         
+
+    </style>
+</head>
+<body>
+    <div>
+        <form  name="calculator" >
+            <input type="text" id="inputholder" value="0" name="screen" disabled >
+            <hr>
+            
+            <input type="button" value="&radic;">
+            <input type="button" value="CE" onclick="calculator.screen.value = ''">
+            <input type="button" value="C" onclick="calculator.screen.value = '' ">
+            <input type="button" value="&larr;"onclick="calculator.screen.value = calculator.screen.value.slice(0,-1)"> <br>
+
+            <input type="button" value="7" onclick="calculator.screen.value += 7">
+            <input type="button" value="8"  onclick="calculator.screen.value += 8">
+            <input type="button" value="9"  onclick="calculator.screen.value += 9">
+            <input type="button" value="+"  onclick="calculator.screen.value += '+'"> <br>
+
+            <input type="button" value="4"  onclick="calculator.screen.value += 4">
+            <input type="button" value="5"  onclick="calculator.screen.value += 5">
+            <input type="button" value="6"  onclick="calculator.screen.value += 6">
+            <input type="button" value="-"  onclick="calculator.screen.value += '-'"> <br>
+
+            <input type="button" value="1"  onclick="calculator.screen.value += 1">
+            <input type="button" value="2"  onclick="calculator.screen.value += 2">
+            <input type="button" value="3"  onclick="calculator.screen.value += 3"  >
+            <input type="button" value="*"  onclick="calculator.screen.value += '*' "  > <br>
+
+            <input type="button" value="0"  onclick="calculator.screen.value += 0"  >
+            <input type="button" value="."  onclick="calculator.screen.value += '.'"  >
+            <input type="button" value="=" id="equal" onclick="(calculator.screen.value) = Math.round(eval(calculator.screen.value))">
+            <input type="button" value="/"  onclick="calculator.screen.value += '/' "  >
+        </form>
+    </div>
+    <script>
+        var inputHolder = document.getElementById("inputholder");
+        var equal = document.getElementById("equal");
+        equal.addEventListener("click", function(){
+
+            if(inputHolder.value == '' || inputHolder.value == 0){
+                alert("please enter22 some number ")
+                inputHolder.value = '0';
+            }
+        });
+    </script>
+</body>
+</html>
